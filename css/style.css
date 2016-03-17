@@ -16,7 +16,24 @@ a:hover{text-decoration:none; color: #438CBB;}
 /*login*/
 
 body{/*height: 100%;min-height: 100%;*/ padding-bottom: 120px; background: #f1f1f1;}
-.login{}
+.login{height: 100%; background: #d6dee0;}
+.login .login_box{height: 452px; background: url(../images/bg_02.jpg) left bottom repeat-x;}
+.login_box .login_c{width: 969px; height: 615px; margin: 0 auto; background: url(../images/bg.jpg) left top no-repeat;}
+.login_c .login_inp_b{width: 663px; height: 365px; position: relative; top: 160px; margin: 0 auto; background: url(../images/border_bg.png) 3px 287px no-repeat;}
+.login_c .login_inp{width: 520px; height: 340px; margin: 0 auto; background: white; border-radius: 5px; border: 1px solid #dedede;}
+.login_inp h1{padding: 40px 0 30px 0; text-align: center; font-size: 28px; color: black;}
+.login_inp ul li{line-height: 26px; padding-bottom: 15px;}
+.login_inp ul li span{width: 175px; text-align: right; color: #646464; display: inline-block; vertical-align: top;}
+.login_inp ul li input{width: 240px; height: 26px; line-height: 26px; margin-left: 5px; border: 1px solid #dedede; border-radius: 5px; text-indent: 10px; color: #646464;}
+.login_inp ul li div{width: 240px; height: 28px; display: inline-block;}
+.login_inp ul li:nth-child(3){padding-bottom: 0px;}
+.login_inp ul li:nth-child(4){margin-top: -2px; padding-bottom: 22px;}
+.login_inp ul li:nth-child(4) input{width: auto; height: auto; position: relative; top: -1px; margin: 0 7px 0 175px;}
+.login_inp ul li:last-child{text-align: center;}
+.login_inp ul li:last-child input{width: 205px; height: 28px; line-height: 28px; text-align: center; letter-spacing: 8px; color: white; font-size: 16px; background: #438cbb; border: none; border-radius: 5px; display: inline-block; cursor: pointer;}
+
+
+
 
 /*公共样式*/
 .main{}
