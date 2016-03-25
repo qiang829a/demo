@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{ margin: 0; padding: 0; list-style-type: none; }
+	</style>
+	<script src="jquery.js"></script>
+	<script src="underscore-min.js"></script>
+	<script src="publice.js"></script>
+	<script>
+	$(function(){
+		var mDetail = {
+		    method:"get_service_class",
+		    params: {
+		        
+		    }
+		}
+		Common.getRequest(mDetail).then(function (data) {
+			 $("#demo-section").append(_.template($("#demo").html(),data ));
+		})
+	})
+	</script>
+</head>
+<body>
+	<script  type='text/temple' id='demo'>
+	<# if(data!=null) { #>
+	<ul>
+	    <# for(var k=0; k<data.length; k++){ #>
+			<li data-id="<#= data[k].id #>"><#= data[k].classname #></li>
+	    <# } #>
+	</ul>
+	<# } #>
+	</script>
+	<section id="demo-section">
+		
+	</section>
+</body>
+</html>
