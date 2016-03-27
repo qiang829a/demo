@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<style type="text/css">
+		*{margin: 0; padding: 0; list-style: none;}
+		.box{width: 14.29rem; height: 7.14rem; line-height: 7.14rem; margin: 3.57rem auto; position: relative; overflow: hidden;}
+		.box ul{position: absolute; left: 0; top: 0;}
+		.box ul li{width: 2.14rem; font-size: 14px; float: left; text-align: center; color: green;}
+		.box ul li:nth-child(2n){background: red;}
+
+	</style>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded',function(){
+			var oUl = document.querySelector('ul');
+			oUl.style.width = oUl.children.length*oUl.children[0].offsetWidth/28+'rem';
+			var iSpeed = 0;
+			var iLast = 0;
+			var bOk = false;
+			var l = 0;
+			oUl.addEventListener('touchstart',function(ev){
+				var disX = ev.targetTouches[0].pageX-oUl.offsetLeft;
+				function fnMove(ev)
+				{
+					bOk = true;
+					l = ev.targetTouches[0].pageX - disX;
+					iSpeed = (ev.targetTouches[0].pageX - iLast)*20;
+					iLast = ev.targetTouches[0].pageX;
+					console.log(iSpeed)
+					oUl.style.left = l/28 +'rem';
+				}
+				function fnUp()
+				{
+					document.removeEventListener('touchmove',fnMove,false);
+					if(bOk)
+					{
+						$(oUl).animate({'left':(iSpeed+l)/28+'rem'},500,function()
+						{
+							if(oUl.offsetLeft<-(oUl.offsetWidth-document.querySelector('div').offsetWidth)){
+								$(oUl).animate({'left':-(oUl.offsetWidth-document.querySelector('div').offsetWidth)+'px'});
+							}
+						})
+					}
+					document.removeEventListener('touchend',fnUp,false);
+					bOk = false;
+				}
+				document.addEventListener('touchmove',fnMove,false);
+				document.addEventListener('touchend',fnUp,false);
+				ev.preventDefault();
+			},false);
+		},false);
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>首页a</li>
+			<li>首页da</li>
+			<li>首页fa</li>
+			<li>首页ga</li>
+			<li>首页</li>
+			<li>首g页</li>
+			<li>首agh页</li>
+			<li>首页</li>
+		</ul>
+	</div>
+</body>
+</html>

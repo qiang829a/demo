@@ -93,30 +93,24 @@ Common.getRequest = function (model) {
 
 Common.postRequest = function (model) {
     var URL=dataURL+model.method;
-    //delete model.method;
+    var method=model.method;
 
-    var model = model.params ? model.params : model;
-    var req = $.extend(true, {}, Common.config);
-    req.timestamp = CU.dateFormat(new Date());
-    req = $.extend(true, req, model);
-    //model.params.token=window.sessionStorage.token;
-    return $.ajax({
-        url: URL,
-        type: 'POST',
-        data: Common.stringify(req),
-        dataType: 'json',
-        timeout: 5000,
-
-        statusCode: {500: function() {
-            alert('500 服务器错误');
-        }},
-        statusCode: {404: function() {
-            alert('404 服务器无法找到被请求的页面');
-        }},
-        error: function (x, h, r) {
-
-        },
-        success: function (data) {
-        }
-    });
+    var models = model.params ? model.params : model;
+    $.ajax({
+                "type" : 'POST',
+                "cache" : false,
+                "url" : URL,
+                "dataType" : "jsonp",
+                "contentType": "application/json",
+                "xhrFields" : {
+                    "withCredentials" : true
+                },
+                "crossDomain" : true,
+                "success" : function(str){
+                    console.log(str)
+                },
+                "error" : function() {
+                    alert("服务器连接错误");
+                }
+            });
 };

@@ -1,0 +1,141 @@
+<!doctype html>
+<head>
+	<title>Document</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				url:'http://cydj.idu.cn/weixin/Api/get_service_class',
+				type: 'GET',
+				success:function(str){
+					for(var i = 0; i<str.data.length; i++)
+					{
+						var oLi = document.createElement('li');
+						$(oLi).attr('data-id',str.data[i].id);
+						oLi.innerHTML = '<a href="#">'+str.data[i].classname+'</a>';
+						$('nav ul')[0].appendChild(oLi);
+					}
+					// var Scroll = new iScroll('wrapper',{hScroll:true,vScroll: false,hScrollbar:false, vScrollbar:false});
+					$('nav ul').css('width',$('nav ul li').length*$('nav ul li')[0].offsetWidth+'px');
+
+					$('nav ul li').click(function(){
+						$(this).addClass('active').siblings().removeClass('active');
+						$.ajax({
+							"type" : 'POST',
+							"cache" : false,
+							"url" : 'http://cydj.idu.cn/weixin/Api/get_service_list',
+							"dataType" : "jsonp",
+							data:{
+								pid: $(this).attr('data-id'),
+								page: 0
+							},
+							"contentType": "application/json",
+							"xhrFields" : {
+								"withCredentials" : true
+							},
+							"crossDomain" : true,
+							"success" : function(data){
+								$('.main ul')[0].innerHTML='';
+								var data = data.data;
+								for(var i=0; i<data.length; i++){
+									var oLi = document.createElement('li');
+									$(oLi).attr('data-id',data[i].id);
+									oLi.innerHTML='<a href="'+data[i].url+'">\
+									<dl>\
+										<dt><img src="'+data[i].img+'" alt=""></dt>\
+										<dd>\
+											<h3>'+data[i].name+'</h3>\
+											<p>抗辐射、抗氧化、抗肿瘤、降血压降血脂</p>\
+											<div class="pir">\
+												<span>￥<strong>'+data[i].price+'</strong><em>茶馆价：￥899</em></span>\
+												<p>服务时间：'+data[i].times+'分钟</p>\
+											</div>\
+										</dd>\
+									</dl>\
+								</a>';
+								$('.main ul').append(oLi);
+								}
+							},
+							"error" : function() {
+								alert("服务器连接错误");
+							}
+						});
+					});
+				}
+			});
+			$.ajax({
+				"type" : 'POST',
+				"cache" : false,
+				"url" : 'http://cydj.idu.cn/weixin/Api/get_service_list',
+				"dataType" : "jsonp",
+				data:{
+					pid: '',
+					page: 0
+				},
+				"contentType": "application/json",
+				"xhrFields" : {
+					"withCredentials" : true
+				},
+				"crossDomain" : true,
+				"success" : function(data){
+					var data = data.data;
+					for(var i = 0; i<data.length; i++)
+					{
+						var oLi = document.createElement('li');
+						$(oLi).attr('data-id',data[i].id);
+						oLi.innerHTML='<a href="'+data[i].url+'">\
+							<dl>\
+								<dt><img src="'+data[i].img+'" alt=""></dt>\
+								<dd>\
+									<h3>'+data[i].name+'</h3>\
+									<p>抗辐射、抗氧化、抗肿瘤、降血压降血脂</p>\
+									<div class="pir">\
+										<span>￥<strong>'+data[i].price+'</strong><em>茶馆价：￥899</em></span>\
+										<p>服务时间：'+data[i].times+'分钟</p>\
+									</div>\
+								</dd>\
+							</dl>\
+						</a>';
+					$('.main ul').append(oLi);
+					}
+				},
+				"error" : function() {
+					alert("服务器连接错误");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<a href="#"><img src="images/banner.jpg" alt=""></a>
+	</header>
+	<nav id="nav">
+		<div class="region">
+			<span>北京</span>
+		</div><div class="box">
+			<div id="wrapper">
+				<div class="scroll">
+					<ul class="clearfix">
+						<li class="active"><a href="javascript:;">全部项目</a></li>
+					</ul>
+		       </div>
+		    </div>
+		</div>
+	</nav>
+	<div class="main">
+		<ul>
+		</ul>
+	</div>
+	<footer>
+		<a class="active" href="#"><em>预约</em></a>
+		<a href="#"><em>订单</em></a>
+		<a href="#"><em>茶艺师</em></a>
+		<a href="#"><em>我的</em></a>
+	</footer>
+</body>
+</html>

@@ -12,13 +12,15 @@
 	<script>
 	$(function(){
 		var mDetail = {
-		    method:"get_service_class",
+		    method:"get_service_list",
 		    params: {
-		        
+		        pid: '',
+		        page: 0
 		    }
 		}
-		Common.getRequest(mDetail).then(function (data) {
-			 $("#demo-section").append(_.template($("#demo").html(),data ));
+		Common.postRequest(mDetail).then(function (data) {
+			console.log(data)
+			// $("#demo-section").append(_.template($("#demo").html(),data ));
 		})
 	})
 	</script>
