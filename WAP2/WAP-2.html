@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="box">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<nav class="clearfix">
+			<div class="nav_left">
+				<a class="return" href="#"><img src="images/menu_2.png" alt=""></a>
+			</div>
+			<h1 class="tit">按疾病查找</h1>	
+			<div class="nav_right">
+				<a href="javascript:;"><img src="images/menu_1.png" alt=""></a>
+			</div>
+		</nav>
+		<div class="search">
+			<a href="javascript:;"></a>
+			<input type="text" placeholder="搜疾病、症状、医院等">
+			<input type="button" value="搜索" name="search">
+		</div>
+	</header>
+	<section class="dise clearfix">
+		<div class="left_la">
+			<div class="wrap">
+				<div class="scroll">
+					<ul>
+						<li><a href="javascript:;">A</a></li>
+						<li><a href="javascript:;">B</a></li>
+						<li><a href="javascript:;">C</a></li>
+						<li><a href="javascript:;">D</a></li>
+						<li><a href="javascript:;">E</a></li>
+						<li><a href="javascript:;">F</a></li>
+						<li><a href="javascript:;">G</a></li>
+						<li><a href="javascript:;">H</a></li>
+						<li><a href="javascript:;">I</a></li>
+						<li><a href="javascript:;">J</a></li>
+						<li><a href="javascript:;">K</a></li>
+						<li><a href="javascript:;">L</a></li>
+						<li><a href="javascript:;">M</a></li>
+						<li><a href="javascript:;">N</a></li>
+					</ul>
+				</div>
+			</div>	
+		</div>
+		<div class="right_la">
+			<div class="wrap wrap2">
+				<div class="scroll">
+					<ul>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="C"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="B"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="D"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="E"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="F"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="G"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="P"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="Q"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="R"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="K"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎1</a></li>
+						<li data-letter="K"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎2</a></li>
+						<li data-letter="K"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎3</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<p>本站内容仅供参考，不作为诊断及医疗依据。<br>经营许可证：京ICP111012号</p>
+		<a href="#"><img src="images/logo2.png" alt=""></a>
+	</footer>
+	<script src="js/iscroll.js"></script>
+	<script type="text/javascript">
+		var myScroll = new IScroll('.wrap');
+		var myScroll2 = new IScroll('.wrap2');
+		var aLi = document.querySelector('.dise ul').children;
+		var aLi2 = document.querySelectorAll('.dise ul')[1].children;
+		var bOk = true;
+		document.querySelector('.dise ul').addEventListener('touchstart',function(){
+				bOk = true;
+				document.querySelector('.dise ul').addEventListener('touchmove',function(){
+					bOk = false;
+				},false);
+		},false);
+
+		for(var i = 0; i < aLi.length; i++)
+		{
+			aLi[i].addEventListener('touchend',function(){
+				hei(document.querySelector('.right_la ul').offsetHeight);
+				if(!bOk) return;
+				for(var i = 0; i < aLi.length; i++)
+					aLi[i].className = '';
+				this.className = 'active';
+				for(var i = 0; i < aLi2.length; i++)
+				{
+					aLi2[i].style.display = 'block';
+					if(aLi2[i].dataset.letter != this.children[0].innerHTML)
+					{
+						aLi2[i].style.display = 'none';
+					}
+				}
+			},false);
+		}
+		
+	</script>
+</html>

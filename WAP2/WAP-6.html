@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/iscroll.js"></script>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded',function(){
+			function tog(fn){
+				var aLi = document.querySelectorAll('.menu ol li');
+				var oMaskLayer = document.querySelector('.mask_layer');
+				var oTog = document.querySelector('.tog');
+				var iC = [0,0,0];
+				for(var i = 0; i < aLi.length; i++)
+				{
+					(function(index){
+						aLi[index].addEventListener('touchstart',function(){
+							iC[index]=(iC[index]+1)%2;
+							for(var i = 0; i < aLi.length; i++)
+							{
+								if(i != index)
+								{
+									iC[i] = 0;
+								}
+								if(iC[i] == 1)
+								{
+									aLi[i].className = 'active';
+									oTog.style.height = 17+'rem';
+									oMaskLayer.style.display = 'block';
+									oMaskLayer.style.opacity = 1;
+								}
+								else if(iC[0] == 0 && iC[1] == 0 && iC[2] == 0)
+								{
+									oMaskLayer.style.opacity = 0;
+									oMaskLayer.addEventListener('transitionend',function(){
+										oMaskLayer.style.display = 'none';
+									},false);
+									oTog.style.height = 0+'px';
+									aLi[i].className = '';
+								}
+								else
+								{
+									aLi[i].className = '';
+								}
+							}
+							fn && fn(index);
+						},false);
+					})(i);
+				}
+			}
+			tog(function(index){
+				switch(index)
+				{
+					case 0:
+						// 地区
+					break;
+					case 1:
+						// 科室
+					break;
+					case 2:
+						// 疾病
+					break;
+				}
+			});
+		},false);
+	</script>
+</head>
+<body>
+	<header>
+		<nav class="clearfix">
+			<div class="nav_left">
+				<a class="return" href="#"><img src="images/menu_2.png" alt=""></a>
+			</div>
+			<h1 class="tit">医生列表</h1>	
+			<div class="nav_right">
+				<a href="javascript:;"><img src="images/menu_1.png" alt=""></a>
+			</div>
+		</nav>
+		<div class="search">
+			<a href="javascript:;"></a>
+			<input type="text" placeholder="搜疾病、症状、医院等">
+			<input type="button" value="搜索" name="search">
+		</div>
+		<menu class="menu">
+			<ol>
+				<li><a href="javascript:;"><em>地区</em></a></li>
+				<li><a href="javascript:;"><em>科室</em></a></li>
+				<li><a href="javascript:;"><em>疾病</em></a></li>
+			</ol>
+			<section class="dise clearfix tog">
+				<div class="left_la">
+					<div class="wrap">
+					    <div class="scroll">
+					    	<ul>
+								<li><a href="javascript:;">A</a></li>
+								<li class="active"><a href="javascript:;">B</a></li>
+								<li><a href="javascript:;">C</a></li>
+								<li><a href="javascript:;">D</a></li>
+								<li><a href="javascript:;">E</a></li>
+								<li><a href="javascript:;">F</a></li>
+								<li><a href="javascript:;">G</a></li>
+								<li><a href="javascript:;">H</a></li>
+								<li><a href="javascript:;">I</a></li>
+								<li><a href="javascript:;">J</a></li>
+								<li><a href="javascript:;">K</a></li>
+								<li><a href="javascript:;">L</a></li>
+								<li><a href="javascript:;">M</a></li>
+								<li><a href="javascript:;">N</a></li>
+							</ul>
+					    </div>
+					</div>
+				</div>
+				<div class="right_la">
+					<div class="wrap wrap2">
+					    <div class="scroll">
+							<ul>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+								<li><a href="https://www.baidu.com">巴斯德菌肺炎</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</menu>
+	</header>
+	
+	<section class="doc_area dl">
+		<ul>
+			<li>
+				<a href="">
+					<dl>
+						<dt><img src="http://news.qiuyi.cn/uploadfile/2013/1119/20131119113219208.jpg" alt=""></dt>
+						<dd>
+							<p><em>吴琼</em>|主任医师</p>
+							<p>上海远大心胸医院</p>
+							<p>擅长：疾病词、疾病词、疾病词、疾病词、疾病词</p>
+						</dd>
+					</dl>
+				</a>
+				<div class="btn">
+					<a href="#"><em>免费咨询</em></a>
+					<a href="#"><em>专家热线</em></a>
+				</div>
+			</li>
+			<li>
+				<a href="">
+					<dl>
+						<dt><img src="http://news.qiuyi.cn/uploadfile/2013/1119/20131119113219208.jpg" alt=""></dt>
+						<dd>
+							<p><em>吴琼</em>|主任医师</p>
+							<p>上海远大心胸医院</p>
+							<p>擅长：疾病词、疾病词、疾病词、疾病词、疾病词</p>
+						</dd>
+					</dl>
+				</a>
+				<div class="btn">
+					<a href="#"><em>免费咨询</em></a>
+					<a href="#"><em>专家热线</em></a>
+				</div>
+			</li>
+			<li>
+				<a href="">
+					<dl>
+						<dt><img src="http://news.qiuyi.cn/uploadfile/2013/1119/20131119113219208.jpg" alt=""></dt>
+						<dd>
+							<p><em>吴琼</em>|主任医师</p>
+							<p>上海远大心胸医院</p>
+							<p>擅长：疾病词、疾病词、疾病词、疾病词、疾病词</p>
+						</dd>
+					</dl>
+				</a>
+				<div class="btn">
+					<a href="#"><em>免费咨询</em></a>
+					<a href="#"><em>专家热线</em></a>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<div class="load_more"><span>点击加载更多</span></div><!--no没有内容时 loading 加载中-->
+	<div class="mask_layer"></div>
+	<footer>
+		<p>本站内容仅供参考，不作为诊断及医疗依据。<br>经营许可证：京ICP111012号</p>
+		<a href="#"><img src="images/logo2.png" alt=""></a>
+	</footer>
+	<script type="text/javascript">
+		var myScroll = new IScroll('.wrap');
+		var myScroll2 = new IScroll('.wrap2');
+		document.querySelector('.dise').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		document.querySelector('.mask_layer').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	</script>
+</html>
