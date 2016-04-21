@@ -52,6 +52,14 @@
 				<div class="scroll">
 					<ul>
 						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
+						<li data-letter="A"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
 						<li data-letter="C"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
 						<li data-letter="B"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
 						<li data-letter="D"><a href="http://fanyi.baidu.com/#zh/en/%E5%AD%97%E6%AF%8D">巴斯德菌肺炎</a></li>
@@ -91,7 +99,8 @@
 		for(var i = 0; i < aLi.length; i++)
 		{
 			aLi[i].addEventListener('touchend',function(){
-				hei(document.querySelector('.right_la ul').offsetHeight);
+
+				// hei(document.querySelector('.right_la ul').offsetHeight);
 				if(!bOk) return;
 				for(var i = 0; i < aLi.length; i++)
 					aLi[i].className = '';
@@ -104,8 +113,11 @@
 						aLi2[i].style.display = 'none';
 					}
 				}
+				myScroll = new IScroll('.wrap');
+				myScroll2 = new IScroll('.wrap2');
+				// myScroll.refresh();
 			},false);
 		}
-		
+		document.querySelector('.dise').addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 	</script>
 </html>

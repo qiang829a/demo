@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<nav class="clearfix">
+			<div class="nav_left">
+				<a class="return" href="#"><img src="images/menu_2.png" alt=""></a>
+			</div>
+			<h1 class="tit">验证手机号码</h1>	
+		</nav>
+	</header>
+	<section class="ill_des ph_codey">
+		<ul>
+			<li>
+				<div class="phone_num">
+					<div>
+						<input type="text" placeholder="11位手机号码">
+						<input type="text" placeholder="输入右侧内容">
+						<span class="code"><img src="http://www.qiuyi.cn/register/yzm_img_register/1459924708" alt=""></span>
+						<a href="javascript:;"><img src="images/f5.jpg" alt=""></a>
+						<input type="text" placeholder="短信验证码">
+						<input type="button" value="获取验证码">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<div class="sub_btn">
+		<a href="javascritp:;">提交验证</a>
+	</div>
+	<div class="sub_succ">
+		<dl>
+			<dt>
+				<span>
+					<img src="images/suc.jpg" />
+				</span>
+				<p>提交成功~</p>
+			</dt>
+			<dd>
+				正在为您安排合适的专家，<br>还请保持手机畅通
+			</dd>
+		</dl>
+	</div>
+	<script type="text/javascript">
+		// document.querySelector('.des-hs input').addEventListener('input',function(){
+		// 	if(this.value == '')
+		// 		document.querySelector('.des_list').style.display = 'none';
+		// 	else
+		// 		document.querySelector('.des_list').style.display = 'block';
+		// },false);
+		function tableSwitch(clasName)
+		{
+			var obj = document.querySelectorAll(clasName);
+			for(var i = 0; i < obj.length; i++)
+			{
+				obj[i].addEventListener('touchstart',function(){
+					for(var i = 0; i < obj.length; i++)
+						obj[i].className = '';
+					this.className = 'on';
+				},false);
+			}
+		}
+		tableSwitch('.sex span');
+		tableSwitch('.hf-time-c a');
+
+		var iTime = 120;
+
+		document.querySelectorAll('.phone_num div input')[3].addEventListener('click',function(){
+			var _this = this;
+			var timer = setInterval(function(){
+				_this.disabled = true;
+				_this.value = iTime+'后重新发送';
+				_this.className = 'disab';
+				if(iTime == 0)
+				{
+					clearInterval(timer);
+					_this.disabled = false;
+					_this.value = '重新发送';
+					_this.className = '';
+				}
+				iTime--;
+			},1000);
+		},false);
+		function $$$(className)
+		{
+			return document.querySelector(className);
+		}
+		$$$('.sub_btn a').addEventListener('touchend',function(){
+			$$$('.sub_succ').style.display = 'block';
+			$$$('.sub_succ').style.WebkitTransition = '1s all ease';
+			
+			setTimeout(function(){
+				$$$('.sub_succ').style.opacity = 0;
+				$$$('.sub_succ').style.WebkitTransition = '1s all ease';
+			},3000);
+			$$$('.sub_succ').addEventListener('transitionend',function(){
+				$$$('.sub_succ').style.WebkitTransition = 'none';
+				$$$('.sub_succ').style.opacity = 1;
+				$$$('.sub_succ').style.display = 'none';
+			},false);
+
+		},false);
+		document.addEventListener('touchmove',function(e){
+			if($$$('.sub_succ').style.display == 'block')
+				e.preventDefault();
+		},false);
+	</script>
+</html>

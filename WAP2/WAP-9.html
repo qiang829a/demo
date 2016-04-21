@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<nav class="clearfix">
+			<div class="nav_left">
+				<a class="return" href="#"><img src="images/menu_2.png" alt=""></a>
+			</div>
+			<h1 class="tit">提交电子病历</h1>	
+			<div class="nav_right">
+				<a href="javascript:;"><img src="images/menu_1.png" alt=""></a>
+			</div>
+		</nav>
+		<section class="doc_onl">
+			<div>
+				<p>
+					当前 <span><i>1</i></span> <span><i>2</i></span> <span><i>3</i></span> <span><i>4</i></span> 名医生在线，<br>
+					已有 <span><i>5</i></span> <span><i>6</i></span> <span><i>7</i></span> 位患者得到免费帮助，<br>
+					回复成功率<em>98%</em>以上。
+				</p>
+			</div>
+		</section>
+	</header>
+	<section class="ill_des">
+		<ul>
+			<li>
+				<div class="des-hs">
+					<div class="des_jb"><span class="imp">所患疾病：</span><input type="text" placeholder="输入疾病词，如糖尿病"></div>
+					<!-- <div class="sel-list">
+						<span>糖尿病<a href="javascript:;">×</a></span><span>白癜风<a href="javascript:;">×</a></span>
+					</div>
+					<div class="des_list">
+						<ul>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+							<li><a href="#">白癜风</a></li>
+						</ul>
+					</div> -->
+				</div>
+				<textarea placeholder="病历描述（20字以上，详细描述您的问题或者症状，有助于医生更好的帮助您，如：发病次数、部位、哪些不适感、曾经得到过的治疗，想得到的帮助等）"></textarea>
+			</li>
+			<li>
+				<div class="pat_inf">
+					<span class="imp">患者个人信息：</span>
+					<div class="inf_des">
+						<div class="age">
+							年龄：<span><input type="text"></span><em>岁</em>
+						</div>
+						<div class="sex">
+							男<span class="on"></span> 女<span></span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="region">
+					<span class="imp">患者所在地区：</span>
+					<select>
+						<option>选择地区</option>
+						<option>选择地区</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<div class="hf_time">
+					<span class="imp">期望回复时间：</span>
+					<div class="hf-time-c">
+						<a class="on" href="javascript:;"><em>1</em>小时内</a>
+						<a href="javascript:;"><em>24</em>小时内</a>
+						<a href="javascript:;"><em>48</em>小时内</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="phone_num">
+					<span class="imp">手机号码：</span>
+					<div>
+						<input type="text" placeholder="11位手机号码">
+						<input type="text" placeholder="输入右侧内容">
+						<span class="code"><img src="http://www.qiuyi.cn/register/yzm_img_register/1459924708" alt=""></span>
+						<a href="javascript:;"><img src="images/f5.jpg" alt=""></a>
+						<input type="text" placeholder="短信验证码">
+						<input type="button" value="获取验证码">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<div class="sub_btn">
+		<a href="javascritp:;">提交病历</a>
+	</div>
+	<div class="sub_succ">
+		<dl>
+			<dt>
+				<span>
+					<img src="images/suc.jpg" />
+				</span>
+				<p>提交成功~</p>
+			</dt>
+			<dd>
+				正在为您安排合适的专家，<br>还请保持手机畅通
+			</dd>
+		</dl>
+	</div>
+	<script type="text/javascript">
+		// document.querySelector('.des-hs input').addEventListener('input',function(){
+		// 	if(this.value == '')
+		// 		document.querySelector('.des_list').style.display = 'none';
+		// 	else
+		// 		document.querySelector('.des_list').style.display = 'block';
+		// },false);
+		function tableSwitch(clasName)
+		{
+			var obj = document.querySelectorAll(clasName);
+			for(var i = 0; i < obj.length; i++)
+			{
+				obj[i].addEventListener('touchstart',function(){
+					for(var i = 0; i < obj.length; i++)
+						obj[i].className = '';
+					this.className = 'on';
+				},false);
+			}
+		}
+		tableSwitch('.sex span');
+		tableSwitch('.hf-time-c a');
+
+		var iTime = 120;
+
+		document.querySelectorAll('.phone_num div input')[3].addEventListener('click',function(){
+			var _this = this;
+			var timer = setInterval(function(){
+				_this.disabled = true;
+				_this.value = iTime+'后重新发送';
+				_this.className = 'disab';
+				if(iTime == 0)
+				{
+					clearInterval(timer);
+					_this.disabled = false;
+					_this.value = '重新发送';
+					_this.className = '';
+				}
+				iTime--;
+			},1000);
+		},false);
+		function $$$(className)
+		{
+			return document.querySelector(className);
+		}
+		$$$('.sub_btn a').addEventListener('touchend',function(){
+			$$$('.sub_succ').style.display = 'block';
+			$$$('.sub_succ').style.WebkitTransition = '1s all ease';
+			
+			setTimeout(function(){
+				$$$('.sub_succ').style.opacity = 0;
+				$$$('.sub_succ').style.WebkitTransition = '1s all ease';
+			},3000);
+			$$$('.sub_succ').addEventListener('transitionend',function(){
+				$$$('.sub_succ').style.WebkitTransition = 'none';
+				$$$('.sub_succ').style.opacity = 1;
+				$$$('.sub_succ').style.display = 'none';
+			},false);
+
+		},false);
+		document.addEventListener('touchmove',function(e){
+			if($$$('.sub_succ').style.display == 'block')
+				e.preventDefault();
+		},false);
+	</script>
+</html>

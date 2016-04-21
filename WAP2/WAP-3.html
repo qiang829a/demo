@@ -26,6 +26,11 @@
 			</dd>
 		</dl>
 	</section>
+	<div class="zx_btn">
+		<p><em>刘海云</em>北京德胜门中医院</p>
+		<a href="#"><em>免费咨询</em></a>
+		<a href="#"><em>专家热线</em></a>
+	</div>
 	<section class="arti_list h4">
 		<h4 class="doc_tit">XXXX医生发表的文章<em>（5条）</em></h4>
 		<ul>
@@ -66,4 +71,14 @@
 		<p>本站内容仅供参考，不作为诊断及医疗依据。<br>经营许可证：京ICP111012号</p>
 		<a href="#"><img src="images/logo2.png" alt=""></a>
 	</footer>
+	<script type="text/javascript">
+		document.addEventListener('scroll',function(){
+			if(document.body.scrollTop > document.querySelector('nav').offsetHeight+document.querySelector('.doc_inf').offsetHeight-10)
+			{
+				document.querySelector('.zx_btn').classList.add('z_show');
+			}else{
+				document.querySelector('.zx_btn').classList.remove('z_show');
+			}
+		},false);
+	</script>
 </html>

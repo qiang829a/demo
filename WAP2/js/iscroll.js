@@ -1918,10 +1918,6 @@ Indicator.prototype = {
 		}
 
 		var r = this.wrapper.offsetHeight;	// force refresh
-		function hei(h)
-		{
-			r = h;
-		}
 
 		if ( this.options.listenX ) {
 			this.wrapperWidth = this.wrapper.clientWidth;
