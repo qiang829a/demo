@@ -19,7 +19,7 @@
 						oLi.innerHTML = '<a href="#">'+str.data[i].classname+'</a>';
 						$('nav ul')[0].appendChild(oLi);
 					}
-					// var Scroll = new iScroll('wrapper',{hScroll:true,vScroll: false,hScrollbar:false, vScrollbar:false});
+					var Scroll = new iScroll('wrapper',{hScroll:true,vScroll: false,hScrollbar:false, vScrollbar:false});
 					$('nav ul').css('width',$('nav ul li').length*$('nav ul li')[0].offsetWidth+'px');
 
 					$('nav ul li').click(function(){

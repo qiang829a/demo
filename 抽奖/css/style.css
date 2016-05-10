@@ -1,0 +1,54 @@
+*{margin:0;padding:0;border:none;font-family:微软雅黑,Arial;list-style:none;text-decoration:none;font-weight:normal;font-style:normal;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+img{width:100%;vertical-align:bottom;display:block}
+html{-ms-touch-action:none}
+a{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none}
+html,body{height:100%}
+
+body{background:url(../images/bg.jpg);}
+.luck_n{height:3.14rem;line-height:3.14rem;background:#000;position:relative}
+.luck_n h2{font-size:1.29rem;color:#fff;text-align:center}
+.luck_n a{padding-left:1.14rem;color:#fff;position:absolute;left:.71rem;top:0}
+.luck_n a:before{content:'';width:.75rem;height:1.25rem;margin-top:-0.65rem;background:url(../images/back.png) center center no-repeat;background-size:contain;position:absolute;left:0;top:50%}
+.sign_b{height:13.75rem;background:url(../images/img_1.jpg);border-bottom:1px solid #dedede}
+.sign_b .sign_inf{text-align:right}
+.sign_b .sign_inf a{line-height:2.82rem;padding:0 1.07rem 0 1.5rem;font-size:.75rem;position:relative}
+.sign_b .sign_inf a:before{content:'';width:1.21rem;height:1.04rem;background:url(../images/img_2.png) left top no-repeat;background-size:contain;position:absolute;left:0;top:.05rem}
+.sign_b .luck_t{padding:0 1.44rem 0 10.18rem;position:relative}
+.sign_b .luck_t:before{content:'';width:6.82rem;height:6.14rem;background:url(../images/img_3.png) left top no-repeat;background-size:contain;position:absolute;left:1.93rem;top:0}
+.sign_b .luck_t ul{padding-top:.36rem}
+.sign_b .luck_t ul li{line-height:1.12rem;margin-bottom:.36rem;padding-left:1.04rem;font-size:.86rem;position:relative}
+.sign_b .luck_t ul li:before{content:'';width:.46rem;height:.39rem;background:url(../images/img_4.png) left top no-repeat;background-size:contain;position:absolute;left:0;top:.39rem}
+.sign_b .luck_t ul li em{font-size:.64rem;color:#ff305d}
+.sign_b .sign_btn{width:19.25rem;margin:1.43rem auto 0;overflow:hidden;display:block}
+.sign_b .sign_btn img{width:100%;height:100%}
+.luck_b{height:20.25rem;border-top:9px solid #ebebeb;position:relative;overflow:hidden}
+.luck_b h3{line-height:2.68rem;font-size:.86rem;text-align:center}
+.luck_b .luck{width:11.07rem;height:11.07rem;margin:0 auto;border-radius:50%;box-shadow:0 .29rem 0 #d49100;background:url(../images/luck.png) left top no-repeat;background-size:contain;overflow:hidden;position:relative}
+.luck_b .luck a{width:3.14rem;height:3.14rem;position:absolute;top:50%;left:50%;-webkit-transform:translate(-51.5%, -50%);transform:translate(-51.5%, -50%)}
+.luck_b .luck a span{position:relative;display:block}
+.luck_b .luck a span:before{content:'';width:.61rem;height:.64rem;background:url(../images/angle.png) left top no-repeat;background-size:contain;position:absolute;left:50%;top:-0.64rem;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0)}
+.luck_b .luck a:after{content:'';width:2.14rem;height:1.04rem;background:url(../images/cj.png) center center no-repeat;background-size:contain;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
+.luck_b .trans{width:100%;height:20rem;position:absolute;left:0;top:0;-webkit-transform:translate(0, -100%);transform:translate(0, -100%)}
+.luck_b .trans span{position:absolute}
+.luck_b .trans .hb{width:1.04rem;height:1.43rem;background:url(../images/hb.png) left top no-repeat;background-size:contain}
+.luck_b .trans .hb_1{left:4.5rem;top:1.39rem;-webkit-transform:rotate(65deg);transform:rotate(65deg)}
+.luck_b .trans .hb_2{left:33px;top:8.5rem;-webkit-transform:rotate(200deg);transform:rotate(200deg);z-index:2}
+.luck_b .trans .hb_3{right:3.04rem;top:3.39rem;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
+.luck_b .trans .rmb{width:1.18rem;height:1.18rem;background:url(../images/rmb.png) left top no-repeat;background-size:contain}
+.luck_b .trans .rmb_1{left:2rem;top:9.64rem;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
+.luck_b .trans .rmb_2{left:4.5rem;top:12.43rem;-webkit-transform:rotate(210deg);transform:rotate(210deg)}
+.luck_b .trans .rmb_3{right:2.04rem;top:8.75rem;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+.luck_b .trans .rmb_4{right:5rem;top:11.71rem;-webkit-transform:rotate(150deg);transform:rotate(150deg)}
+.luck_b .trans .rmb_5{right:3.25rem;top:13.64rem;-webkit-transform:rotate(150deg);transform:rotate(150deg)}
+.luck_b .ts{-webkit-transition:all 5s ease;transition:all 5s ease}
+.luck_b .trans100{-webkit-transform:translate(0, -100%);transform:translate(0, 100%)}
+.layer{width:100%;height:100%;background:rgba(0,0,0,0.65);position:fixed;left:0;top:0;display:none}
+.layer .rule{width:16.79rem;height:23.5rem;padding:.29rem 0 .79rem 0;background:url(../images/bg_2.png) center center,#fad320;background-size:contain;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
+.layer .rule h4{line-height:1.96rem;margin-top:2.86rem;font-size:1.07rem;text-align:center;position:relative}
+.layer .rule h4 em{position:relative;z-index:2}
+.layer .rule h4:before{content:'';width:6.14rem;height:.29rem;border-radius:.29rem;background:#fad320;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
+.layer .rule ul{margin-top:.36rem;padding:0 2.32rem}
+.layer .rule ul li{line-height:1.07rem;padding-left:1.43rem;font-size:.86rem;position:relative}
+.layer .rule ul li em{position:absolute;left:0;top:0}
+.layer .rule .prompt{line-height:1.07rem;padding:.43rem 2.32rem 1.07rem;font-size:.86rem;color:#ff305d}
+.layer .rule .dete{width:9.64rem;height:2.18rem;margin:0 auto;background:url(../images/dete.jpg) left top no-repeat;background-size:contain;overflow:hidden;display:block}

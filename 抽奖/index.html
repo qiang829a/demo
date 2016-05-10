@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        ;(function(win,doc){
+            win.onload=win.onresize=function(){
+                doc.documentElement.style.fontSize = doc.documentElement.clientWidth*28/640+'px';
+            };
+        })(window,document);
+    </script>
+</head>
+<body>
+    <nav class="luck_n">
+        <a href="javascript:;">返回</a>
+        <h2>签到</h2>
+    </nav>
+    <section class="sign_b">
+        <div class="sign_inf">
+            <a href="javascript:;">签到说明</a>
+        </div>
+        <div class="luck_t">
+            <ul>
+                 <li>您已连续签到xx天，获得xx元。</li>
+                 <li>您共获得xx张任务双倍积分卡，已使用xx张，剩余xx张<em>(共包含签到和抽奖赠送的)</em></li>
+             </ul>             
+        </div>
+        <a href="javascript:;" class="sign_btn"><img src="images/sign_btn.png" alt=""></a>
+    </section>
+    <section class="luck_b">
+        <h3>您可参与的次数为<em>2</em>次.</h3>
+        <div class="luck">
+            <a href="javascript:;"><span><img src="images/luck_btn.png" /></span></a>
+        </div>
+        <div class="trans ts">
+            <span class="hb hb_1"></span>
+            <span class="hb hb_2"></span>
+            <span class="hb hb_3"></span>
+            <span class="rmb rmb_1"></span>
+            <span class="rmb rmb_2"></span>
+            <span class="rmb rmb_3"></span>
+            <span class="rmb rmb_4"></span>
+            <span class="rmb rmb_5"></span>
+            <span class="cir"></span>
+        </div>
+    </section>
+    <section class="layer">
+        <div class="rule">
+            <h4><em>签到规则</em></h4>
+            <ul>
+                <li><em>1.</em>每日签到奖励0.02元。</li>
+                <li><em>2.</em>连续签到6天奖励0.5元。</li>
+                <li><em>3.</em>连续签到12天赠送1张任务双倍积分卡。</li>
+                <li><em>4.</em>连续签到16天奖励1.5元。</li>
+                <li><em>5.</em>连续签到22天赠送2张任务双倍积分卡。</li>
+                <li><em>6.</em>连续签到30天奖励3元。</li>
+                <li><em>7.</em>30天为一周期。</li>
+            </ul>
+            <p class="prompt">温馨提示：获得了任务双倍积分卡，去做任意一个快速任务即可获取双倍奖励哦。</p>
+            <a class="dete" href="javascript:;"></a>
+        </div>
+    </section>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery.rotate.min.js"></script>
+    <script>
+        $('.sign_inf a')[0].addEventListener('touchstart',function(){
+            $('.layer')[0].style.display = 'block';
+        },false);
+        $('.layer')[0].addEventListener('touchmove',function(e){
+            e.preventDefault();
+        },false);
+        $('.rule .dete')[0].addEventListener('touchstart',function(){
+            $('.layer')[0].style.display = 'none';
+        },false);
+        $(function(){
+            var $hand = $('.luck a');
+
+            $hand.click(function(){
+                $('.trans').addClass('ts');
+                var data = ['恭喜你抽中了0.01元红包', '恭喜你抽中了0.06元红包', '恭喜你抽中了0.2元红包', '恭喜你抽中了0.5元红包', '恭喜你抽中了6元红包', '任务双倍积分卡', '小米移动电源', '谢谢'];
+                dataIndex = rnd(1,9);
+                switch(dataIndex){
+                    case 1:
+                        rotateFunc(1,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 2:
+                        rotateFunc(2,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 3:
+                        rotateFunc(3,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 4:
+                        rotateFunc(4,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 5:
+                        rotateFunc(5,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 6:
+                        rotateFunc(6,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 7:
+                        rotateFunc(7,360/8*dataIndex-(360/8/2),data[dataIndex-1]);
+                        break;
+                    case 0:
+                        rotateFunc(7,360/8*8-(360/8/2),data[8-1]); //谢谢
+                        break;
+                }
+            });
+            function rnd(n,m)
+            {
+               return Math.floor(n+Math.random()*m);
+            }
+            var rotateFunc = function(awards,angle,text){
+                $('.trans').addClass('trans100');
+                $('.luck a span').stopRotate();
+                $('.luck a span').rotate({
+                    angle: 0,
+                    duration: 5000,
+                    animateTo: angle + 1440,
+                    callback: function(){
+                        $('.trans').removeClass('ts trans100');
+                        alert(text);
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>
